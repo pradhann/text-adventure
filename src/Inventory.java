@@ -15,4 +15,8 @@ public class Inventory {
 	public void removeItem(String item1) {
 		this.allItems.remove(item1);
 	}
+	
+	public boolean contains(Item itemX) {
+		return allItems.contains(itemX);
+	}
 }

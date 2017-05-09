@@ -11,9 +11,7 @@ public abstract class Room {
 		this.name = name;
 	}
 
-	public void setDescription(String dep) {
-		this.description = dep;
-	}
+	public abstract void setDescription(String dep);
 
 	public String getDescription() {
 		return this.description;
