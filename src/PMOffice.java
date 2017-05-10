@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-  public class PMOffice {
+public class PMOffice {
 	private String name;
 	private ArrayList<Item> itemInRoom;
 	private String description;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 	}
 
 	public void addAllItems () {
-		Item item1 = new Item("Tennis Ball", "descp");
+		Item item1 = new Item("Ball", "descp");
 		itemInRoom.add(item1);
 
 	}
@@ -32,12 +32,29 @@ import java.util.ArrayList;
 			// what'll happen if you use itemX
 		}
 	}
-	
+
 	public void talk() {
 		System.out.println("PM says....");
-}
-	
-	public void look() {
-		System.out.println("PM is flustered");
+	}
+
+	public void look(String obj) {
+		if(obj.equalsIgnoreCase("PM")) {
+			System.out.println("PM is flustered");
+		} else if (obj.equalsIgnoreCase("ball")) {
+			System.out.println("Might be helpful to get rid of Oliver");
+		} else {
+			System.out.println(obj + " is not in the room");
+		}
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
