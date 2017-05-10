@@ -13,20 +13,22 @@ public class CSCommons {
 	}
 	
 	public void addAllItems () {
-		Item item1 = new Item("Laptop", "descp");
-		Item item2 = new Item("pcard", "descp");
-		Item item3 = new Item("LaptopCharger", "desc");
+		Item item1 = new Item("Laptop", "Your laptop.", true);
+		Item item2 = new Item("pcard", "Your Pioneer One card.", true);
+		Item item3 = new Item("LaptopCharger", "Your laptop charger.", true);
 		itemInRoom.add(item1);
 		itemInRoom.add(item2);
 		itemInRoom.add(item3);
 	}
 	
 	public void waitH() {
-		System.out.println("what happens after wait...");
+		System.out.println("You stand in the CS commons for a while. Nothing happens.");
 	}
 	
 	public void pickup(Inventory stash, Item itemX) {
+		if(itemX.inventory) {
 		stash.addItem(itemX);
+		}
 	}
 	
 	public void useItem(Inventory stash, Item itemX) {

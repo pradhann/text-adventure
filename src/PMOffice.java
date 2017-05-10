@@ -12,17 +12,19 @@ import java.util.ArrayList;
 	}
 
 	public void addAllItems () {
-		Item item1 = new Item("Tennis Ball", "descp");
+		Item item1 = new Item("Tennis Ball", "Just a regular old tennis ball.", true);
 		itemInRoom.add(item1);
 
 	}
 
 	public void waitH() {
-		System.out.println("what happens after wait...");
+		System.out.println("You stand in PM's office for a while. PM gives you a weird look.");
 	}
 
 	public void pickup(Inventory stash, Item itemX) {
+		if(itemX.inventory) {
 		stash.addItem(itemX);
+		}
 	}
 
 	public void useItem(Inventory stash, Item itemX) {
@@ -34,10 +36,17 @@ import java.util.ArrayList;
 	}
 	
 	public void talk() {
-		System.out.println("PM says....");
+		System.out.println("PM says \'fuck Java.\'");
 }
 	
 	public void look() {
 		System.out.println("PM is flustered");
 	}
+	
+	public void attack(String obj) {
+		if (obj.equalsIgnoreCase("PM")) {
+		System.out.println("I don't think you want to do that. PM knows Jiu-Jitsu!");
+		}
+	}
+	
 }
