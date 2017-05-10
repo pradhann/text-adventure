@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class RobotRoom {
+public class RobotRoom implements Room{
 	private String name;
 	private String description;
 	private final Map<String, Item> itemMap;
@@ -48,9 +48,15 @@ public class RobotRoom {
 		}
 	}
 
+<<<<<<< HEAD
 	public void look(String obj) {
+=======
+	
+	public void look() {
+>>>>>>> branch 'master' of https://github.com/aberthelsen/text-adventure-berthels-pradhann-1-1.git
 		
 	}
+<<<<<<< HEAD
 	
 //	public void go(String direction) {
 //		if() {
@@ -62,5 +68,7 @@ public class RobotRoom {
 
 
 
+=======
+>>>>>>> branch 'master' of https://github.com/aberthelsen/text-adventure-berthels-pradhann-1-1.git
 
 }

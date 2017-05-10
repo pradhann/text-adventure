@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class PMOffice {
+public class PMOffice implements Room {
 	private String name;
 	private Map<String, Item> itemMap;
 	private String description;
@@ -13,10 +13,19 @@ public class PMOffice {
 	}
 
 	public void addAllItems () {
+<<<<<<< HEAD
 		Item item1 = new Item("Ball", "Just a regular old tennis ball.", true, true);
 		Item item2 = new Item("PM", "Your professor, Peter-Michael Osera.", false, true);
+=======
+		Item item1 = new Item("Tennis Ball", "Just a regular old tennis ball.", true);
+		Item item2 = new Item("PM", "Peter-Michael Osera", false);
+>>>>>>> branch 'master' of https://github.com/aberthelsen/text-adventure-berthels-pradhann-1-1.git
 		itemMap.put("PM", item2);
 		itemMap.put("Tennis Ball", item1);
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/aberthelsen/text-adventure-berthels-pradhann-1-1.git
 	}
 
 	public void waitH() {

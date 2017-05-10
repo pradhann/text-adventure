@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Printer {
+public class Printer implements Room {
 
 	private String name;
 	private Map<String, Item> itemMap;
