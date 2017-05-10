@@ -21,4 +21,6 @@ public class AllLocations {
 		currentRoom = room1;
 		myStash = new Inventory();
 	}
+	
+	public void go(String )
 }
