@@ -3,14 +3,18 @@ import java.util.*;
 public class Printer {
 
 	private String name;
-	private ArrayList<Item> itemInRoom;
+	private Map<String, Item> itemMap;
 	private String description;
-	private final Map<String, Room> possibleDirections = new HashMap<String, Room>();
 
 	public Printer (String name) {
 		this.name = name;
 		this.description = "You are now in a room that has the printer.";
-		this.itemInRoom = new ArrayList<Item>();
+		this.itemMap = new HashMap<String, Item>();
+	}
+	
+	public void addAllItems() {
+		Item item1 = new Item("Printer", "The CS floor printer.", false, false);
+		itemMap.put(item1.getName(), item1);
 	}
 
 
@@ -27,9 +31,9 @@ public class Printer {
 		}
 	}
 
-	public void useItem(Inventory stash, Item itemX) {
-		if(!stash.contains(itemX)) {
-			System.out.println("You do not have" + itemX.getName());
+	public void useItem(Inventory stash, String item) {
+		if(!stash.getAllItems().containsKey(item)) {
+			System.out.println("You do not have" + item);
 		} else {
 			// what'll happen if you use itemX
 		}
@@ -51,12 +55,12 @@ public class Printer {
 		
 	}
 
-	public void go(String direction) {
-		if(!possibleDirections.containsKey(direction)) {
-			System.out.println("You can't go that way.");
-		} else {
-			// go that direction
-		}
-	}
+//	public void go(String direction) {
+//		if(!possibleDirections.containsKey(direction)) {
+//			System.out.println("You can't go that way.");
+//		} else {
+//			// go that direction
+//		}
+//	}
 
 }

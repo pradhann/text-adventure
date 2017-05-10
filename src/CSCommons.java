@@ -3,23 +3,25 @@ import java.util.*;
 public class CSCommons {
 
 	private String name;
-	private ArrayList<Item> itemInRoom;
+	private Map<String,Item> itemMap;
 	private String description;
-	private final Map<String, Room> possibleDirections = new HashMap<String, Room>();
 	
 	public CSCommons (String name) {
 		this.name = name;
 		this.description = "write description here";
-		this.itemInRoom = new ArrayList<Item>();
+		this.itemMap = new HashMap<String, Item>();
 	}
 	
 	public void addAllItems () {
+
 		Item item1 = new Item("Laptop", "Your laptop.", true, false);
 		Item item2 = new Item("pcard", "Your Pioneer One card.", true, true);
 		Item item3 = new Item("LaptopCharger", "Your laptop charger.", true, true);
-		itemInRoom.add(item1);
-		itemInRoom.add(item2);
-		itemInRoom.add(item3);
+		itemMap.put("Laptop",item1);
+		itemMap.put("pcard",item2);
+		itemMap.put("LaptopCharger",item3);
+
+
 	}
 	
 	public void waitH() {
@@ -52,13 +54,13 @@ public class CSCommons {
 		
 	}
 	
-	public void go(String direction) {
-		if(!possibleDirections.containsKey(direction)) {
-			System.out.println("You can't go that way.");
-		} else {
-			// go that direction
-		}
-	}
+//	public void go(String direction) {
+//		if(!possibleDirections.containsKey(direction)) {
+//			System.out.println("You can't go that way.");
+//		} else {
+//			// go that direction
+//		}
+//	}
 	
 }
 

@@ -2,14 +2,14 @@ import java.util.*;
 
 public class Inventory {
 
-	private ArrayList<Item> allItems;
+	private Map<String, Item> allItems;
 
 	public Inventory() {
-		this.allItems = new ArrayList<>();
+		this.allItems = new HashMap<String, Item>();
 	}
 
 	public void addItem(Item item1) {
-		this.allItems.add(item1);
+		this.allItems.put(item1.getName(), item1);
 	}
 
 	public void removeItem(String item1) {
@@ -17,12 +17,14 @@ public class Inventory {
 	}
 	
 	public boolean contains(Item itemX) {
-		return allItems.contains(itemX);
+		return allItems.containsKey(itemX.getName());
+	}
+	
+	public Map<String, Item> getAllItems() {
+		return allItems;
 	}
 	
 	public void printInventory() {
-		for (int i = 0; i < allItems.size(); i++) {
-			System.out.println(allItems.get(i).getName());
-		}
+		//TODO
 	}
 }

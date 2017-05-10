@@ -3,12 +3,20 @@ import java.util.*;
 public class RobotRoom {
 	private String name;
 	private String description;
-	private final Map<String, Room> possibleDirections = new HashMap<String, Room>();
+	private final Map<String, Item> itemMap;
 
 	public RobotRoom (String name) {
 		this.name = name;
 		this.description = "You are in a CS classroom. You can see a logged in computer,"
 				+ " but there is a scribbler robot blocking access to the computer.";
+		this.itemMap = new HashMap<String, Item>();
+	}
+	
+	public void addAllItems() {
+		Item item1 = new Item("Scribbler Robot", "A scribbler robot used by the 161 students.", false, false);
+		Item item2 = new Item("Computer", "A lab computer.", false, false);
+		itemMap.put(item1.getName(), item1);
+		itemMap.put(item2.getName(), item2);
 	}
 
 
@@ -32,25 +40,26 @@ public class RobotRoom {
 			System.out.println("You can't use " + itemX.getName() + "!");
 		}
 	}
-	
+
 	public void attack(String obj) {
 		if (obj.equalsIgnoreCase("robot")) {
 			System.out.println("You swipe at the scribbler robot blocking your path,"
 					+ "knocking it out of the way. Take that, evil robot!");
 		}
 	}
-	
+
 	public void look(String obj) {
 		
 	}
 	
-	public void go(String direction) {
-		if(!possibleDirections.containsKey(direction)) {
-			System.out.println("You can't go that way.");
-		} else {
-			// go that direction
-		}
-	}
+//	public void go(String direction) {
+//		if() {
+//			System.out.println("You can't go that way.");
+//		} else {
+//			// go that direction
+//		}
+//	}
+
 
 
 

@@ -13,6 +13,10 @@ public class Item {
 		this.inventory = inventory;
 		this.usable = usable;
 	}
+	
+	public String getDescription(){
+		return description;
+	}
 
 	public String getName() {
 		return name;

@@ -1,21 +1,22 @@
 import java.util.*;
 
-  public class PMOffice {
+public class PMOffice {
 	private String name;
-	private ArrayList<Item> itemInRoom;
+	private Map<String, Item> itemMap;
 	private String description;
-	private final Map<String, Room> possibleDirections = new HashMap<String, Room>();
 
 	public PMOffice (String name) {
 		this.name = name;
-		this.description = "write description here";
-		this.itemInRoom = new ArrayList<Item>();
+		this.description = "You are standing in PM's office. PM is sitting at his computer and there is a "
+				+ "ball on the table.";
+		this.itemMap = new HashMap<String,Item>();
 	}
 
 	public void addAllItems () {
-		Item item1 = new Item("Tennis Ball", "Just a regular old tennis ball.", true, true);
-		itemInRoom.add(item1);
-
+		Item item1 = new Item("Ball", "Just a regular old tennis ball.", true, true);
+		Item item2 = new Item("PM", "Your professor, Peter-Michael Osera.", false, true);
+		itemMap.put("PM", item2);
+		itemMap.put("Tennis Ball", item1);
 	}
 
 	public void waitH() {
@@ -24,39 +25,67 @@ import java.util.*;
 
 	public void pickup(Inventory stash, Item itemX) {
 		if(itemX.inventory) {
-		stash.addItem(itemX);
+			stash.getAllItems().put(itemX.getName(), itemX);
 		}
 	}
 
-	public void useItem(Inventory stash, Item itemX) {
-		if(!stash.contains(itemX)) {
-			System.out.println("You do not have" + itemX.getName());
+	public void useItem(Inventory stash, String itemX) {
+		if(!stash.getAllItems().containsKey(itemX)) {
+			System.out.println("You do not have " + itemX);
 		} else {
 			// what'll happen if you use itemX
 		}
 	}
-	
-	public void talk() {
-		System.out.println("PM says \'fuck Java.\'");
-}
-	
-	public void look() {
-		System.out.println("PM is flustered");
-	}
-	
-	public void attack(String obj) {
+
+	public void talk(String obj) {
 		if (obj.equalsIgnoreCase("PM")) {
-		System.out.println("I don't think you want to do that. PM knows Jiu-Jitsu!");
-		}
-	}
-	
-	public void go(String direction) {
-		if(!possibleDirections.containsKey(direction)) {
-			System.out.println("You can't go that way.");
-		} else {
-			// go that direction
+		System.out.println("PM says \'Fuck Java!\'");
+		} else if (obj.equalsIgnoreCase("ball")) {
+			System.out.println("The ball does not respond. I'm starting to question your sanity...");
 		}
 	}
 
+	public void look(String obj) {
+		if(obj.equalsIgnoreCase("PM")) {
+			System.out.println("PM is flustered");
+		} else if (obj.equalsIgnoreCase("PM")) {
+			System.out.println("The tennis ball rolls an inch closer towards you!");
+		} else {
+			System.out.println(obj + "is not in the room");
+		}
+	}
 	
-}
+//	public void go(String direction) {
+//		if(!possibleDirections.containsKey(direction)) {
+//			System.out.println("You can't go that way.");
+//		} else {
+//			// go that direction
+//		}
+//	}
+//
+
+
+
+
+		public void attack(String obj) {
+			if (obj.equalsIgnoreCase("PM")) {
+				System.out.println("I don't think you want to do that. PM knows Jiu-Jitsu!");
+			} else if (obj.equalsIgnoreCase("ball")) {
+				System.out.println("Really? Stop messing around!");
+			} else {
+				System.out.println("That is not in the room.");
+			}
+		}
+
+	}
+
+
+
+
+
+
+
+
+
+
+
