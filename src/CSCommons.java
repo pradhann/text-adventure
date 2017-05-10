@@ -13,12 +13,21 @@ public class CSCommons {
 	}
 	
 	public void addAllItems () {
+<<<<<<< HEAD
 		Item item1 = new Item("Laptop", "Your laptop.", true);
 		Item item2 = new Item("pcard", "Your Pioneer One card.", true);
 		Item item3 = new Item("LaptopCharger", "Your laptop charger.", true);
 		itemMap.put("Laptop",item1);
 		itemMap.put("pcard",item2);
 		itemMap.put("LaptopCharger",item3);
+=======
+		Item item1 = new Item("Laptop", "Your laptop.", true, false);
+		Item item2 = new Item("pcard", "Your Pioneer One card.", true, true);
+		Item item3 = new Item("LaptopCharger", "Your laptop charger.", true, true);
+		itemInRoom.add(item1);
+		itemInRoom.add(item2);
+		itemInRoom.add(item3);
+>>>>>>> a7bf5640fbc780f09d810abef0dfcc4bb83ba727
 	}
 	
 	public void waitH() {
@@ -39,6 +48,9 @@ public class CSCommons {
 		}
 	}
 
+	public void look(String obj) {
+		
+	}
 	
 }
 

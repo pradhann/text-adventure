@@ -12,10 +12,15 @@ public class PMOffice {
 	}
 
 	public void addAllItems () {
+<<<<<<< HEAD
 		Item item1 = new Item("Tennis Ball", "Just a regular old tennis ball.", true);
 		Item item2 = new Item("PM", "Peter-Michael Osera", false);
 		itemMap.put("PM", item2);
 		itemMap.put("Tennis Ball", item1);
+=======
+		Item item1 = new Item("Tennis Ball", "Just a regular old tennis ball.", true, true);
+		itemInRoom.add(item1);
+>>>>>>> a7bf5640fbc780f09d810abef0dfcc4bb83ba727
 
 	}
 
