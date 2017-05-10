@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Printer {
+public class Printer implements Room {
 
 	private String name;
 	private ArrayList<Item> itemInRoom;

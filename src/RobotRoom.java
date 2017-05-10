@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RobotRoom {
+public class RobotRoom implements Room{
 	private String name;
 	private String description;
 	private final Map<String, Room> possibleDirections = new HashMap<String, Room>();
@@ -41,14 +41,10 @@ public class RobotRoom {
 					+ "knocking it out of the way. Take that, evil robot!");
 		}
 	}
-<<<<<<< HEAD
-=======
+
 	
 	public void look() {
 		
 	}
-
->>>>>>> a7bf5640fbc780f09d810abef0dfcc4bb83ba727
-
 
 }

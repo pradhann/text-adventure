@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class CSCommons {
+public class CSCommons implements Room {
 
 	private String name;
 	private Map<String,Item> itemMap;
