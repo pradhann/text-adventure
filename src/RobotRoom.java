@@ -1,8 +1,11 @@
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class RobotRoom {
 	private String name;
 	private String description;
+	private final Map<String, Room> possibleDirections = new HashMap<String, Room>();
 
 	public RobotRoom (String name) {
 		this.name = name;
@@ -21,10 +24,14 @@ public class RobotRoom {
 	}
 
 	public void useItem(Inventory stash, Item itemX) {
-		if(!stash.contains(itemX)) {
-			System.out.println("You do not have" + itemX.getName());
+		if(itemX.usable) {
+			if(!stash.contains(itemX)) {
+				System.out.println("You do not have" + itemX.getName());
+			} else {
+				// what'll happen if you use itemX
+			}
 		} else {
-			// what'll happen if you use itemX
+			System.out.println("You can't use " + itemX.getName() + "!");
 		}
 	}
 	
@@ -35,8 +42,9 @@ public class RobotRoom {
 		}
 	}
 	
-	
-
+	public void look() {
+		
+	}
 
 
 

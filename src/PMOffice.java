@@ -12,7 +12,7 @@ import java.util.ArrayList;
 	}
 
 	public void addAllItems () {
-		Item item1 = new Item("Tennis Ball", "Just a regular old tennis ball.", true);
+		Item item1 = new Item("Tennis Ball", "Just a regular old tennis ball.", true, true);
 		itemInRoom.add(item1);
 
 	}

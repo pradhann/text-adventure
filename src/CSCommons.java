@@ -13,9 +13,9 @@ public class CSCommons {
 	}
 	
 	public void addAllItems () {
-		Item item1 = new Item("Laptop", "Your laptop.", true);
-		Item item2 = new Item("pcard", "Your Pioneer One card.", true);
-		Item item3 = new Item("LaptopCharger", "Your laptop charger.", true);
+		Item item1 = new Item("Laptop", "Your laptop.", true, false);
+		Item item2 = new Item("pcard", "Your Pioneer One card.", true, true);
+		Item item3 = new Item("LaptopCharger", "Your laptop charger.", true, true);
 		itemInRoom.add(item1);
 		itemInRoom.add(item2);
 		itemInRoom.add(item3);
@@ -39,6 +39,9 @@ public class CSCommons {
 		}
 	}
 
+	public void look(String obj) {
+		
+	}
 	
 }
 

@@ -19,4 +19,10 @@ public class Inventory {
 	public boolean contains(Item itemX) {
 		return allItems.contains(itemX);
 	}
+	
+	public void printInventory() {
+		for (int i = 0; i < allItems.size(); i++) {
+			System.out.println(allItems.get(i).getName());
+		}
+	}
 }
