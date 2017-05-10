@@ -6,12 +6,14 @@ public class RobotRoom {
 
 	public RobotRoom (String name) {
 		this.name = name;
-		this.description = "write description here";
+		this.description = "You are in a CS classroom. You can see a logged in computer,"
+				+ " but there is a scribbler robot blocking access to the computer.";
 	}
 
 
 	public void waitH() {
-		System.out.println("what happens after wait...");
+		System.out.println("You stand in the classroom for a while. You hear scribbler robot beeps, "
+				+ "otherwise nothing happens.");
 	}
 
 	public void pickup(Inventory stash, Item itemX) {
@@ -23,6 +25,13 @@ public class RobotRoom {
 			System.out.println("You do not have" + itemX.getName());
 		} else {
 			// what'll happen if you use itemX
+		}
+	}
+	
+	public void attack(String obj) {
+		if (obj.equalsIgnoreCase("robot")) {
+			System.out.println("You swipe at the scribbler robot blocking your path,"
+					+ "knocking it out of the way. Take that, evil robot!");
 		}
 	}
 	

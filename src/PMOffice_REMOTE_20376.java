@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 
-public class PMOffice {
   public class PMOffice {
 	private String name;
 	private ArrayList<Item> itemInRoom;
@@ -35,7 +34,7 @@ public class PMOffice {
 			// what'll happen if you use itemX
 		}
 	}
-
+	
 	public void talk() {
 		System.out.println("PM says \'fuck Java.\'");
 }
@@ -51,14 +50,3 @@ public class PMOffice {
 	}
 	
 }
-
-
-
-
-
-
-
-
-
-
-

@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 
-public class PMOffice {
   public class PMOffice {
 	private String name;
 	private ArrayList<Item> itemInRoom;
@@ -13,19 +12,17 @@ public class PMOffice {
 	}
 
 	public void addAllItems () {
-		Item item1 = new Item("Tennis Ball", "Just a regular old tennis ball.", true);
+		Item item1 = new Item("Tennis Ball", "descp");
 		itemInRoom.add(item1);
 
 	}
 
 	public void waitH() {
-		System.out.println("You stand in PM's office for a while. PM gives you a weird look.");
+		System.out.println("what happens after wait...");
 	}
 
 	public void pickup(Inventory stash, Item itemX) {
-		if(itemX.inventory) {
 		stash.addItem(itemX);
-		}
 	}
 
 	public void useItem(Inventory stash, Item itemX) {
@@ -35,30 +32,12 @@ public class PMOffice {
 			// what'll happen if you use itemX
 		}
 	}
-
+	
 	public void talk() {
-		System.out.println("PM says \'fuck Java.\'");
+		System.out.println("PM says....");
 }
 	
 	public void look() {
 		System.out.println("PM is flustered");
 	}
-	
-	public void attack(String obj) {
-		if (obj.equalsIgnoreCase("PM")) {
-		System.out.println("I don't think you want to do that. PM knows Jiu-Jitsu!");
-		}
-	}
-	
 }
-
-
-
-
-
-
-
-
-
-
-
