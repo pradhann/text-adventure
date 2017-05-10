@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class RobotRoom implements Room{
+public class RobotRoom {
 	private String name;
 	private String description;
 	private final Map<String, Item> itemMap;
@@ -25,39 +25,57 @@ public class RobotRoom implements Room{
 				+ "otherwise nothing happens.");
 	}
 
-	public void pickup(Inventory stash, Item itemX) {
-		System.out.println(itemX.getName() + " is not in the room");
-	}
-
-	public void useItem(Inventory stash, Item itemX) {
-		if(itemX.usable) {
-			if(!stash.contains(itemX)) {
-				System.out.println("You do not have" + itemX.getName());
+	public void pickup(Inventory stash, String item) {
+		if (itemMap.containsKey(item)) {
+			if(item.equalsIgnoreCase("robot")) {
+				System.out.println("Don't pick that thing up, it's evil!");
 			} else {
-				// what'll happen if you use itemX
-			}
+				System.out.println("You can't pick that up");
+			} 
 		} else {
-			System.out.println("You can't use " + itemX.getName() + "!");
+			System.out.println(item + " is not in the room");
+
 		}
 	}
+
+	public void useItem(Inventory stash, String item) {
+		if (item.equalsIgnoreCase("computer")) {
+			System.out.println("You use the computer to print off a message to get PM's attention.");
+		} else if(!stash.getAllItems().containsKey(item)) {
+			System.out.println("You do not have" + item);
+		} else if (stash.getAllItems().get(item).usable) {
+			System.out.println("You can't use that here.");
+		} else {
+			System.out.println("You can't use " + item + "!");
+
+		}
+	}
+
 
 	public void attack(String obj) {
 		if (obj.equalsIgnoreCase("robot")) {
 			System.out.println("You swipe at the scribbler robot blocking your path,"
 					+ "knocking it out of the way. Take that, evil robot!");
+		} else if (obj.equalsIgnoreCase("computer")) {
+			System.out.println("What is this, Office Space? You would have to pay for "
+					+ "that if you broke it.");
+		} else {
+			System.out.println("Stop attacking things that aren't here!");
 		}
 	}
 
-<<<<<<< HEAD
-	public void look(String obj) {
-=======
-	
-	public void look() {
->>>>>>> branch 'master' of https://github.com/aberthelsen/text-adventure-berthels-pradhann-1-1.git
+
+		public void look(Inventory stash, String obj) {
+			 if (itemMap.containsKey(obj)) {
+				System.out.println(itemMap.get(obj).getDescription());
+			 } else if (stash.getAllItems().containsKey(obj)) {
+				 System.out.println(stash.getAllItems().get(obj).getDescription());
+			} else {
+				System.out.println("Look at what now?");
+			}
+		}
 		
-	}
-<<<<<<< HEAD
-	
+
 //	public void go(String direction) {
 //		if() {
 //			System.out.println("You can't go that way.");
@@ -68,7 +86,6 @@ public class RobotRoom implements Room{
 
 
 
-=======
->>>>>>> branch 'master' of https://github.com/aberthelsen/text-adventure-berthels-pradhann-1-1.git
+
 
 }

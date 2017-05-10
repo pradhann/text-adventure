@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class CSCommons implements Room {
+public class CSCommons{
 
 	private String name;
 	private Map<String,Item> itemMap;
@@ -8,7 +8,8 @@ public class CSCommons implements Room {
 	
 	public CSCommons (String name) {
 		this.name = name;
-		this.description = "write description here";
+		this.description = "You are in the CS commons. On the table you see your laptop, your pcard,"
+				+ "and your laptop charger. There is a door to the South.";
 		this.itemMap = new HashMap<String, Item>();
 	}
 	
@@ -31,27 +32,49 @@ public class CSCommons implements Room {
 	public void pickup(Inventory stash, Item itemX) {
 		if(itemX.inventory) {
 		stash.addItem(itemX);
+		System.out.println("Taken.");
 		}
 	}
 	
-	public void useItem(Inventory stash, Item itemX) {
-		if(!stash.contains(itemX)) {
-			System.out.println("You do not have" + itemX.getName());
+	public void useItem(Inventory stash, String item) {
+		if (item.equalsIgnoreCase("laptop")) {
+			if (itemMap.get(item).usable) {
+			System.out.println("The laptop is dead");
+			} else {
+				System.out.println("The laptop turns on to reveal the code to unlock the classroom.");
+			}
+		} else if (item.equalsIgnoreCase("charger")) {
+			System.out.println("You plug in your laptop.");
+		} else if(!stash.getAllItems().containsKey(item)) {
+			System.out.println("You do not have" + item);
+		} else if (stash.getAllItems().get(item).usable) {
+			System.out.println("You can't use that here.");
 		} else {
-			// what'll happen if you use itemX
+			System.out.println("You can't use " + item + "!");
+
 		}
 	}
 
-	public void look(String obj) {
-		
+	public void look(Inventory stash, String obj) {
+		 if (itemMap.containsKey(obj)) {
+			System.out.println(itemMap.get(obj).getDescription());
+		 } else if (stash.getAllItems().containsKey(obj)) {
+			 System.out.println(stash.getAllItems().get(obj).getDescription());
+		} else {
+			System.out.println("Look at what now?");
+		}
 	}
 	
 	public void attack(String obj) {
-		
+		if (itemMap.containsKey(obj)) {
+			System.out.println("Stop attacking your own things!");
+		} else {
+			System.out.println("Stop attacking things that aren't here.");
+		}		
 	}
 	
 	public void talk(String obj) {
-		
+		System.out.println("I'm starting to question your sanity...");
 	}
 	
 //	public void go(String direction) {

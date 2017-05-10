@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Printer implements Room {
+public class Printer {
 
 	private String name;
 	private Map<String, Item> itemMap;
@@ -35,24 +35,36 @@ public class Printer implements Room {
 		if(!stash.getAllItems().containsKey(item)) {
 			System.out.println("You do not have" + item);
 		} else {
-			// what'll happen if you use itemX
+			if (item.equalsIgnoreCase("pcard")) {
+				Item paper = new Item("Message", "A message to get PM's attention", true, true);
+				itemMap.put("Message", paper);
+				System.out.println("The printer prints the message you created.");
+			} else {
+				System.out.println("You can't use that here.");
+			}
 		}
 	}
 	
-	public void look(String obj) {
-		if(obj.equalsIgnoreCase("printer")) {
-			System.out.println("Descibe printer...");
-		} 
+	public void look(Inventory stash, String obj) {
+		 if (itemMap.containsKey(obj)) {
+			System.out.println(itemMap.get(obj).getDescription());
+		} else if (stash.getAllItems().containsKey(obj)) {
+			 System.out.println(stash.getAllItems().get(obj).getDescription());
+		} else {
+			System.out.println("Look at what now?");
+		}
 	}
 		
 	public void attack(String obj) {
 		if(obj.equalsIgnoreCase("printer")) {
 			System.out.println("What is this, Office Space?");
+		} else {
+			System.out.println("Stop attacking things that aren't there.");
 		}
 	}
 	
 	public void talk(String obj) {
-		
+		System.out.println("I think you're starting to lose it...");		
 	}
 
 //	public void go(String direction) {
