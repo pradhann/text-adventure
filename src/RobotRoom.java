@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class RobotRoom {
 	private String name;
@@ -42,8 +40,16 @@ public class RobotRoom {
 		}
 	}
 	
-	public void look() {
+	public void look(String obj) {
 		
+	}
+	
+	public void go(String direction) {
+		if(!possibleDirections.containsKey(direction)) {
+			System.out.println("You can't go that way.");
+		} else {
+			// go that direction
+		}
 	}
 
 

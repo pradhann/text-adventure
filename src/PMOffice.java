@@ -1,9 +1,10 @@
-import java.util.ArrayList;
+import java.util.*;
 
   public class PMOffice {
 	private String name;
 	private ArrayList<Item> itemInRoom;
 	private String description;
+	private final Map<String, Room> possibleDirections = new HashMap<String, Room>();
 
 	public PMOffice (String name) {
 		this.name = name;
@@ -48,5 +49,14 @@ import java.util.ArrayList;
 		System.out.println("I don't think you want to do that. PM knows Jiu-Jitsu!");
 		}
 	}
+	
+	public void go(String direction) {
+		if(!possibleDirections.containsKey(direction)) {
+			System.out.println("You can't go that way.");
+		} else {
+			// go that direction
+		}
+	}
+
 	
 }

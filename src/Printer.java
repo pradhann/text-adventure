@@ -1,10 +1,11 @@
-import java.util.ArrayList;
+import java.util.*;
 
 public class Printer {
 
 	private String name;
 	private ArrayList<Item> itemInRoom;
 	private String description;
+	private final Map<String, Room> possibleDirections = new HashMap<String, Room>();
 
 	public Printer (String name) {
 		this.name = name;
@@ -45,7 +46,17 @@ public class Printer {
 			System.out.println("What is this, Office Space?");
 		}
 	}
+	
+	public void talk(String obj) {
+		
+	}
 
-
+	public void go(String direction) {
+		if(!possibleDirections.containsKey(direction)) {
+			System.out.println("You can't go that way.");
+		} else {
+			// go that direction
+		}
+	}
 
 }
