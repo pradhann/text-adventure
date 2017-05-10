@@ -1,20 +1,21 @@
-import java.util.ArrayList;
+import java.util.*;
 
 public class PMOffice {
-  public class PMOffice {
 	private String name;
-	private ArrayList<Item> itemInRoom;
+	private Map<String, Item> itemMap;
 	private String description;
 
 	public PMOffice (String name) {
 		this.name = name;
 		this.description = "write description here";
-		this.itemInRoom = new ArrayList<Item>();
+		this.itemMap = new HashMap<String,Item>();
 	}
 
 	public void addAllItems () {
 		Item item1 = new Item("Tennis Ball", "Just a regular old tennis ball.", true);
-		itemInRoom.add(item1);
+		Item item2 = new Item("PM", "Peter-Michael Osera", false);
+		itemMap.put("PM", item2);
+		itemMap.put("Tennis Ball", item1);
 
 	}
 
@@ -24,7 +25,7 @@ public class PMOffice {
 
 	public void pickup(Inventory stash, Item itemX) {
 		if(itemX.inventory) {
-		stash.addItem(itemX);
+			stash.addItem(itemX);
 		}
 	}
 
@@ -38,19 +39,26 @@ public class PMOffice {
 
 	public void talk() {
 		System.out.println("PM says \'fuck Java.\'");
-}
-	
-	public void look() {
-		System.out.println("PM is flustered");
 	}
-	
-	public void attack(String obj) {
-		if (obj.equalsIgnoreCase("PM")) {
-		System.out.println("I don't think you want to do that. PM knows Jiu-Jitsu!");
+
+	public void look(String obj) {
+		if(obj.equalsIgnoreCase("PM")) {
+			System.out.println("PM is flustered");
+		} else if (obj.equalsIgnoreCase("PM")) {
+			System.out.println("The tennis ball rolls an inch closer towards you!");
+		} else {
+			System.out.println(obj + "is not in the room");
 		}
 	}
-	
-}
+
+
+		public void attack(String obj) {
+			if (obj.equalsIgnoreCase("PM")) {
+				System.out.println("I don't think you want to do that. PM knows Jiu-Jitsu!");
+			}
+		}
+
+	}
 
 
 

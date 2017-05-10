@@ -27,17 +27,13 @@ public class RobotRoom {
 			// what'll happen if you use itemX
 		}
 	}
-	
+
 	public void attack(String obj) {
 		if (obj.equalsIgnoreCase("robot")) {
 			System.out.println("You swipe at the scribbler robot blocking your path,"
 					+ "knocking it out of the way. Take that, evil robot!");
 		}
 	}
-	
-	
-
-
 
 
 }
