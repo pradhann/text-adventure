@@ -15,11 +15,11 @@ public class PMOffice implements Room {
 
 	private void addAllItems () {
 
-		Item item1 = new Item("Ball", "Just a regular old tennis ball.", true, true);
-		Item item2 = new Item("PM", "Your professor, Peter-Michael Osera.", false, true);
+		Item item1 = new Item("ball", "Just a regular old tennis ball.", true, true);
+		Item item2 = new Item("pm", "Your professor, Peter-Michael Osera.", false, true);
 
-		itemMap.put("PM", item2);
-		itemMap.put("Tennis Ball", item1);
+		itemMap.put("pm", item2);
+		itemMap.put("ball", item1);
 
 	}
 
@@ -28,9 +28,15 @@ public class PMOffice implements Room {
 	}
 
 	public void pickUp(Inventory stash, String item) {
-		if(stash.getAllItems().get(item).inventory) {
-			stash.getAllItems().put(item, itemMap.get(item));
-			System.out.println("Taken.");
+		if(itemMap.containsKey(item)) {
+			if(itemMap.get(item).inventory) {
+				stash.getAllItems().put(item, itemMap.get(item));
+				System.out.println("Taken.");
+			} else {
+				System.out.println(item + " cannot be taken");
+			}
+		} else {
+		 System.out.println(item + " is not in the room!");
 		}
 	}
 

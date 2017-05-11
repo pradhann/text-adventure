@@ -24,11 +24,15 @@ public class Printer implements Room {
 	}
 
 	public void pickUp(Inventory stash, String item) {
-		if(stash.getAllItems().get(item).inventory) {
-			stash.getAllItems().put(item, itemMap.get(item));
-			System.out.println("Taken.");
+		if(itemMap.containsKey(item)) {
+			if(itemMap.get(item).inventory) {
+				stash.getAllItems().put(item, itemMap.get(item));
+				System.out.println("Taken.");
+			} else {
+				System.out.println(item + " cannot be taken");
+			}
 		} else {
-			System.out.println("You can't take " + item + "!");
+		 System.out.println(item + " is not in the room!");
 		}
 	}
 

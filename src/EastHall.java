@@ -15,8 +15,8 @@ public class EastHall implements Room {
 	}
 	
 	public void addAllItems() {
-		Item item = new Item("Pile of stuff", "A pile of things overflowing from Sam's office.", false, false);
-		itemMap.put(item.getName(), item);
+		Item item = new Item("trash", "A pile of things overflowing from Sam's office.", false, false);
+		itemMap.put("trash", item);
 	}
 
 	public void waitH() {
@@ -24,9 +24,15 @@ public class EastHall implements Room {
 	}
 
 	public void pickUp(Inventory stash, String item) {
-		if(stash.getAllItems().get(item).inventory) {
-			stash.getAllItems().put(item, itemMap.get(item));
-			System.out.println("Taken.");
+		if(itemMap.containsKey(item)) {
+			if(itemMap.get(item).inventory) {
+				stash.getAllItems().put(item, itemMap.get(item));
+				System.out.println("Taken.");
+			} else {
+				System.out.println(item + " cannot be taken");
+			}
+		} else {
+		 System.out.println(item + " is not in the room!");
 		}
 	}
 

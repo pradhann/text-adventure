@@ -14,10 +14,10 @@ public class RobotRoom implements Room {
 	}
 	
 	private void addAllItems() {
-		Item item1 = new Item("Scribbler Robot", "A scribbler robot used by the 161 students.", false, false);
-		Item item2 = new Item("Computer", "A lab computer.", false, false);
-		itemMap.put(item1.getName(), item1);
-		itemMap.put(item2.getName(), item2);
+		Item item1 = new Item("roobt", "A scribbler robot used by the 161 students.", false, false);
+		Item item2 = new Item("computer", "A lab computer.", false, false);
+		itemMap.put("robot", item1);
+		itemMap.put("computer", item2);
 	}
 
 

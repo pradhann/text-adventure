@@ -10,11 +10,13 @@ public class WestHall implements Room {
 		name = "West Hallway";
 		description = "You are standing in the West Hallway. There is a door to the South and the hallway continues"
 				+ " to the East. PM's office is to the North. Oliver the dog is blocking the West exit.";
+		this.addAllItems();
 	}
 
 	public void addAllItems() {
-		Item item1 = new Item("Oliver", "The cutest dog on the CS floor.", false, false);
-		itemMap.put(item1.getName(), item1);
+		itemMap = new HashMap<>();
+		Item item1 = new Item("oliver", "The cutest dog on the CS floor.", false, false);
+		itemMap.put("oliver", item1);
 	}
 
 	public void waitH() {
@@ -22,9 +24,15 @@ public class WestHall implements Room {
 	}
 
 	public void pickUp(Inventory stash, String item) {
-		if(stash.getAllItems().get(item).inventory) {
-			stash.getAllItems().put(item, itemMap.get(item));
-			System.out.println("Taken.");
+		if(itemMap.containsKey(item)) {
+			if(itemMap.get(item).inventory) {
+				stash.getAllItems().put(item, itemMap.get(item));
+				System.out.println("Taken.");
+			} else {
+				System.out.println(item + " cannot be taken");
+			}
+		} else {
+			System.out.println(item + " is not in the room!");
 		}
 	}
 
@@ -46,10 +54,10 @@ public class WestHall implements Room {
 	}
 
 	public void look(Inventory stash, String obj) {
-		 if (itemMap.containsKey(obj)) {
+		if (itemMap.containsKey(obj)) {
 			System.out.println(itemMap.get(obj).getDescription());
-		 } else if (stash.getAllItems().containsKey(obj)) {
-			 System.out.println(stash.getAllItems().get(obj).getDescription());
+		} else if (stash.getAllItems().containsKey(obj)) {
+			System.out.println(stash.getAllItems().get(obj).getDescription());
 		} else {
 			System.out.println("Look at what now?");
 		}
@@ -69,11 +77,11 @@ public class WestHall implements Room {
 		if (obj.equalsIgnoreCase("Oliver")) {
 			System.out.println("Bark! bark!");
 		} else {
-		System.out.println("I'm starting to question your sanity...");
+			System.out.println("I'm starting to question your sanity...");
 		}
 	}
 
-	
+
 	public String getDescription () {
 		return description;
 	}

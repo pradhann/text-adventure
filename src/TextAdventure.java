@@ -9,7 +9,7 @@ public class TextAdventure {
 
 		System.out.println("Welcome!....");
 		System.out.println(game.getCurRoom().getDescription());
-		
+
 		while(oliver) {
 			parser.parseWords();
 			switch(parser.getCommand()) {
@@ -33,25 +33,29 @@ public class TextAdventure {
 			case "attack" :
 				game.attack(parser.getItem());
 				break;
-				
+
 			case "look " :
 				game.look(parser.getItem());
 				break;
-					
+
 			case "talk" :
 				game.talk(parser.getItem());
 				break;
-				
+
 			case "pick" :
 				game.pickUp(parser.getItem());
 				break;
-				
+
 			case "take" :
 				game.pickUp(parser.getItem());
 				break;
-				
+
 			case "use" :
 				game.useItem(parser.getItem());
+				break;
+
+			default:
+				System.out.println("Please enter a valid command");
 				break;
 			}
 		}
