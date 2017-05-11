@@ -2,7 +2,6 @@
 public interface Room {
 	
 	public void waitH();
-	public void go(String direction);
 	public void talk(String toWho);
 	public void pickUp(Inventory stash, String item);
 	public void useItem(Inventory stash, String item);
