@@ -76,7 +76,7 @@ public class RobotRoom implements Room {
 		}
 		
 		public void talk(String obj) {
-			
+			System.out.println("There is no one to talk to.");
 		}
 		
 
