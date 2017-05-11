@@ -14,5 +14,9 @@ public class Parser {
 		words = scan.nextLine().split(" ", 10);		
 	}
 	
+	public void getCommand() {
+		
+	}
+	
 
 }
