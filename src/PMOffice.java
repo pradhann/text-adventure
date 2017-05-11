@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class PMOffice {
+public class PMOffice implements Room {
 	private String name;
 	private Map<String, Item> itemMap;
 	private String description;
@@ -26,11 +26,9 @@ public class PMOffice {
 		System.out.println("You stand in PM's office for a while. PM gives you a weird look.");
 	}
 
-	public void pickup(Inventory stash, Item item) {
-		if(item.inventory) {
-			stash.getAllItems().put(item.getName(), item);
-			itemMap.remove(item.getName());
-			description = "You are standing in PM's office. PM is sitting at his computer.";
+	public void pickUp(Inventory stash, String item) {
+		if(stash.getAllItems().get(item).inventory) {
+			stash.getAllItems().put(item, itemMap.get(item));
 			System.out.println("Taken.");
 		}
 	}
@@ -63,14 +61,10 @@ public class PMOffice {
 		}
 	}
 	
-//	public void go(String direction) {
-//		if(!possibleDirections.containsKey(direction)) {
-//			System.out.println("You can't go that way.");
-//		} else {
-//			// go that direction
-//		}
-//	}
-//
+	public void go(String direction) {
+
+	}
+
 
 
 

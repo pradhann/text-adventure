@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class RobotRoom {
+public class RobotRoom implements Room {
 	private String name;
 	private String description;
 	private final Map<String, Item> itemMap;
@@ -25,7 +25,7 @@ public class RobotRoom {
 				+ "otherwise nothing happens.");
 	}
 
-	public void pickup(Inventory stash, String item) {
+	public void pickUp(Inventory stash, String item) {
 		if (itemMap.containsKey(item)) {
 			if(item.equalsIgnoreCase("robot")) {
 				System.out.println("Don't pick that thing up, it's evil!");
@@ -75,14 +75,14 @@ public class RobotRoom {
 			}
 		}
 		
+		public void talk(String obj) {
+			
+		}
+		
 
-//	public void go(String direction) {
-//		if() {
-//			System.out.println("You can't go that way.");
-//		} else {
-//			// go that direction
-//		}
-//	}
+	public void go(String direction) {
+
+	}
 
 
 

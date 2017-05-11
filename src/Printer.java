@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Printer {
+public class Printer implements Room {
 
 	private String name;
 	private Map<String, Item> itemMap;
@@ -11,7 +11,7 @@ public class Printer {
 		this.description = "You are now in a room that has the printer.";
 		this.itemMap = new HashMap<String, Item>();
 	}
-	
+
 	public void addAllItems() {
 		Item item1 = new Item("Printer", "The CS floor printer.", false, false);
 		itemMap.put(item1.getName(), item1);
@@ -22,12 +22,12 @@ public class Printer {
 		System.out.println("You wait by the printer for a while. Nothing happens.");
 	}
 
-	public void pickup(Inventory stash, Item itemX) {
-		if(itemX.inventory) {
-		stash.addItem(itemX);
-		System.out.println(itemX.getName() + " has been added to your inventory.");
+	public void pickUp(Inventory stash, String item) {
+		if(stash.getAllItems().get(item).inventory) {
+			stash.getAllItems().put(item, itemMap.get(item));
+			System.out.println("Taken.");
 		} else {
-			System.out.println("You can't take " + itemX.getName() + "!");
+			System.out.println("You can't take " + item + "!");
 		}
 	}
 
@@ -44,17 +44,17 @@ public class Printer {
 			}
 		}
 	}
-	
+
 	public void look(Inventory stash, String obj) {
-		 if (itemMap.containsKey(obj)) {
+		if (itemMap.containsKey(obj)) {
 			System.out.println(itemMap.get(obj).getDescription());
 		} else if (stash.getAllItems().containsKey(obj)) {
-			 System.out.println(stash.getAllItems().get(obj).getDescription());
+			System.out.println(stash.getAllItems().get(obj).getDescription());
 		} else {
 			System.out.println("Look at what now?");
 		}
 	}
-		
+
 	public void attack(String obj) {
 		if(obj.equalsIgnoreCase("printer")) {
 			System.out.println("What is this, Office Space?");
@@ -62,17 +62,13 @@ public class Printer {
 			System.out.println("Stop attacking things that aren't there.");
 		}
 	}
-	
+
 	public void talk(String obj) {
 		System.out.println("I think you're starting to lose it...");		
 	}
 
-//	public void go(String direction) {
-//		if(!possibleDirections.containsKey(direction)) {
-//			System.out.println("You can't go that way.");
-//		} else {
-//			// go that direction
-//		}
-//	}
+	public void go(String direction) {
+
+	}
 
 }

@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class CSCommons{
+public class CSCommons implements Room {
 
 	private String name;
 	private Map<String,Item> itemMap;
@@ -29,9 +29,9 @@ public class CSCommons{
 		System.out.println("You stand in the CS commons for a while. Nothing happens.");
 	}
 	
-	public void pickup(Inventory stash, Item itemX) {
-		if(itemX.inventory) {
-		stash.addItem(itemX);
+	public void pickUp(Inventory stash, String item) {
+		if(stash.getAllItems().get(item).inventory) {
+		stash.getAllItems().put(item, itemMap.get(item));
 		System.out.println("Taken.");
 		}
 	}
@@ -77,13 +77,9 @@ public class CSCommons{
 		System.out.println("I'm starting to question your sanity...");
 	}
 	
-//	public void go(String direction) {
-//		if(!possibleDirections.containsKey(direction)) {
-//			System.out.println("You can't go that way.");
-//		} else {
-//			// go that direction
-//		}
-//	}
+	public void go(String direction) {
+	
+	}
 	
 }
 
