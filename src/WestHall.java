@@ -75,7 +75,7 @@ public class WestHall implements Room {
 
 	public void talk(String obj) {
 		if (obj.equalsIgnoreCase("Oliver")) {
-			System.out.println("Bark! bark!");
+			System.out.println("Bark! Woof!");
 		} else {
 			System.out.println("I'm starting to question your sanity...");
 		}

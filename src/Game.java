@@ -12,12 +12,13 @@ public class Game {
 
 	public Game () {
 		// initializing all the rooms
-		Room room1 = new CSCommons("CSCommons");
-		Room room2 = new PMOffice("PMOffice");
-		Room room3 = new RobotRoom("RobotRoom");
-		Room room4 = new Printer("Printer");
+		Room room1 = new CSCommons();
+		Room room2 = new PMOffice();
+		Room room3 = new RobotRoom();
+		Room room4 = new Printer();
 		Room room5 = new WestHall();
 		Room room6 = new EastHall();
+		Room room7 = new Exit();
 
 		currentRoom = room1;
 		myStash = new Inventory();
@@ -38,15 +39,16 @@ public class Game {
 
 		//initializing and adding all the elements in goEast
 		goEast = new HashMap<>();
-		goEast.put(room2, room1);
+		//goEast.put(room2, room1);
 		goEast.put(room5, room6);
-		goEast.put(room4, room3);
+		//goEast.put(room4, room3);
 
 		//initializing and adding all the elements in goWest
 		goWest = new HashMap<>();
-		goWest.put(room1, room2);
+		//goWest.put(room1, room2);
 		goWest.put(room6, room5);
-		goWest.put(room3, room4);
+		goWest.put(room5, room7);
+		//goWest.put(room3, room4);
 
 	}
 
@@ -79,7 +81,7 @@ public class Game {
 			currentRoom = goNorth.get(currentRoom);
 			System.out.println(currentRoom.getDescription());
 		} else {
-			System.out.println("The wall at the north is indestructible. You can't go north! ");
+			System.out.println("You can't go north! ");
 		}
 	}
 
@@ -88,7 +90,7 @@ public class Game {
 			currentRoom = goSouth.get(currentRoom);
 			System.out.println(currentRoom.getDescription());
 		} else {
-			System.out.println("The wall at the south is indestructible. You can't go south! ");
+			System.out.println("You can't go south! ");
 		}
 	}
 
@@ -97,7 +99,7 @@ public class Game {
 			currentRoom = goEast.get(currentRoom);
 			System.out.println(currentRoom.getDescription());
 		} else {
-			System.out.println("The wall at the east is indestructible. You can't go east! ");
+			System.out.println("You can't go east! ");
 		}
 	}
 
@@ -106,7 +108,7 @@ public class Game {
 			currentRoom = goWest.get(currentRoom);
 			System.out.println(currentRoom.getDescription());
 		} else {
-			System.out.println("The wall at the west is indestructible. You can't go west! ");
+			System.out.println("You can't go west! ");
 		}
 	}
 

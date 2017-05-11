@@ -6,9 +6,9 @@ public class Printer implements Room {
 	private Map<String, Item> itemMap;
 	private String description;
 
-	public Printer (String name) {
-		this.name = name;
-		this.description = "You are now in a room that has the printer.";
+	public Printer () {
+		this.name = "Printer Room";
+		this.description = "You are now in a room that has the printer. \nThere is a door to the North.";
 		this.itemMap = new HashMap<String, Item>();
 		this.addAllItems();
 	}
@@ -37,18 +37,24 @@ public class Printer implements Room {
 	}
 
 	public void useItem(Inventory stash, String item) {
-		if(!stash.getAllItems().containsKey(item)) {
-			System.out.println("You do not have" + item);
-		} else {
-			if (item.equalsIgnoreCase("pcard")) {
-				Item paper = new Item("Message", "A message to get PM's attention", true, true);
-				itemMap.put("Message", paper);
+		if (item.equalsIgnoreCase("printer")) {
+			System.out.println("Swipe your pcard to print your job.");
+		} else if(!stash.getAllItems().containsKey(item)) {
+			System.out.println("You do not have " + item);
+		} else if (item.equalsIgnoreCase("pcard")) {
+			if (stash.getAllItems().get(item).usable) {
+				Item paper = new Item("message", "A message to get PM's attention."
+						+ " It reads...", true, true);
+				itemMap.put("message", paper);
 				System.out.println("The printer prints the message you created.");
 			} else {
-				System.out.println("You can't use that here.");
+				System.out.println("There are no jobs to print.");
 			}
+		} else {
+			System.out.println("You can't use that here.");
 		}
 	}
+
 
 	public void look(Inventory stash, String obj) {
 		if (itemMap.containsKey(obj)) {

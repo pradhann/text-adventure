@@ -4,13 +4,15 @@ public class RobotRoom implements Room {
 	private String name;
 	private String description;
 	private final Map<String, Item> itemMap;
+	private boolean locked;
 
-	public RobotRoom (String name) {
-		this.name = name;
+	public RobotRoom () {
+		this.name = "Robot Classroom";
 		this.description = "You are in a CS classroom. You can see a logged in computer,"
 				+ " but there is a scribbler robot blocking access to the computer.";
 		this.itemMap = new HashMap<String, Item>();
 		this.addAllItems();
+		locked = true;
 	}
 	
 	private void addAllItems() {
@@ -41,9 +43,14 @@ public class RobotRoom implements Room {
 
 	public void useItem(Inventory stash, String item) {
 		if (item.equalsIgnoreCase("computer")) {
-			System.out.println("You use the computer to print off a message to get PM's attention.");
+			if(itemMap.get(item).usable) {
+			System.out.println("You use the computer to send a message to the printer.");
+			stash.getAllItems().get("pcard").usable = true;
+			} else {
+				System.out.println("The robot is in the way!");
+			}
 		} else if(!stash.getAllItems().containsKey(item)) {
-			System.out.println("You do not have" + item);
+			System.out.println("You do not have " + item + ".");
 		} else if (stash.getAllItems().get(item).usable) {
 			System.out.println("You can't use that here.");
 		} else {
@@ -55,8 +62,9 @@ public class RobotRoom implements Room {
 
 	public void attack(String obj) {
 		if (obj.equalsIgnoreCase("robot")) {
-			System.out.println("You swipe at the scribbler robot blocking your path,"
-					+ "knocking it out of the way. Take that, evil robot!");
+			System.out.println("You swipe at the scribbler robot blocking your path, "
+					+ "knocking it out of the way. Take that, robo scum!");
+			itemMap.get("computer").usable = true;
 		} else if (obj.equalsIgnoreCase("computer")) {
 			System.out.println("What is this, Office Space? You would have to pay for "
 					+ "that if you broke it.");

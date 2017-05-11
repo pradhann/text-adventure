@@ -6,8 +6,8 @@ public class CSCommons implements Room {
 	private Map<String,Item> itemMap;
 	private String description;
 
-	public CSCommons (String name) {
-		this.name = name;
+	public CSCommons () {
+		this.name = "CS Commons";
 		this.description = "You are in the CS commons. On the table you see your laptop, your pcard,"
 				+ "and your laptop charger. There is a door to the South.";
 		this.itemMap = new HashMap<String, Item>();
@@ -17,7 +17,7 @@ public class CSCommons implements Room {
 	public void addAllItems () {
 
 		Item item1 = new Item("laptop", "Your laptop.", true, false);
-		Item item2 = new Item("pcard", "Your Pioneer One card.", true, true);
+		Item item2 = new Item("pcard", "Your Pioneer One card.", true, false);
 		Item item3 = new Item("charger", "Your laptop charger.", true, true);
 		itemMap.put("laptop",item1);
 		itemMap.put("pcard",item2);
@@ -45,15 +45,16 @@ public class CSCommons implements Room {
 
 	public void useItem(Inventory stash, String item) {
 		if (item.equalsIgnoreCase("laptop")) {
-			if (itemMap.get(item).usable) {
-				System.out.println("The laptop is dead");
+			if (!itemMap.get(item).usable) {
+				System.out.println("Your laptop is dead. You cannot use it.");
 			} else {
 				System.out.println("The laptop turns on to reveal the code to unlock the classroom.");
 			}
 		} else if (item.equalsIgnoreCase("charger")) {
 			System.out.println("You plug in your laptop.");
+			itemMap.get("laptop").usable = true;
 		} else if(!stash.getAllItems().containsKey(item)) {
-			System.out.println("You do not have" + item);
+			System.out.println("You do not have " + item + ".");
 		} else if (stash.getAllItems().get(item).usable) {
 			System.out.println("You can't use that here.");
 		} else {

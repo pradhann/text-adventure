@@ -10,7 +10,7 @@ public class TextAdventure {
 		System.out.println("Welcome!....");
 		System.out.println(game.getCurRoom().getDescription());
 
-		while(oliver) {
+		while(!(game.getCurRoom() instanceof Exit)) {
 			parser.parseWords();
 			switch(parser.getCommand()) {
 			case "wait" : 
@@ -34,7 +34,7 @@ public class TextAdventure {
 				game.attack(parser.getItem());
 				break;
 
-			case "look " :
+			case "look" :
 				game.look(parser.getItem());
 				break;
 
@@ -55,9 +55,11 @@ public class TextAdventure {
 				break;
 
 			default:
-				System.out.println("Please enter a valid command");
+				System.out.println("I don't recognize that command.");
 				break;
 			}
 		}
+		
+		System.out.println("Congratulations! You made it out of Noyce 3rd! \nThanks for playing!");
 	}
 }

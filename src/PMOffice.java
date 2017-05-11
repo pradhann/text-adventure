@@ -4,13 +4,15 @@ public class PMOffice implements Room {
 	private String name;
 	private Map<String, Item> itemMap;
 	private String description;
+	private boolean locked;
 
-	public PMOffice (String name) {
-		this.name = name;
-		this.description = "You are standing in PM's office. PM is sitting at his computer and there is a "
+	public PMOffice () {
+		this.name = "PM's Office";
+		this.description = "You are standing in PM's office. \nPM is sitting at his computer and there is a "
 				+ "ball on the table.";
 		this.itemMap = new HashMap<String,Item>();
 		this.addAllItems();
+		locked = true;
 	}
 
 	private void addAllItems () {
