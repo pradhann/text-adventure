@@ -32,20 +32,39 @@ public class WestHall implements Room {
 		if(!stash.getAllItems().containsKey(item)) {
 			System.out.println("You do not have" + item);
 		} else {
-			// what'll happen if you use itemX
+			if(item.equalsIgnoreCase("message")) {
+				System.out.println("You slide the message under the door to get PM's "
+						+ "attention and after a few seconds you hear the door unlock");
+			}
 		}
 	}
 
 	public void look(Inventory stash, String obj) {
-
+		 if (itemMap.containsKey(obj)) {
+			System.out.println(itemMap.get(obj).getDescription());
+		 } else if (stash.getAllItems().containsKey(obj)) {
+			 System.out.println(stash.getAllItems().get(obj).getDescription());
+		} else {
+			System.out.println("Look at what now?");
+		}
 	}
 
 	public void attack(String obj) {
-
+		if (itemMap.containsKey(obj)) {
+			System.out.println("Stop attacking your own things!");
+		} else if (obj.equalsIgnoreCase("Oliver")) {
+			System.out.println("Who would do that?! You monster!");
+		} else {
+			System.out.println("Stop attacking things that aren't here.");
+		}		
 	}
 
 	public void talk(String obj) {
-
+		if (obj.equalsIgnoreCase("Oliver")) {
+			System.out.println("Bark! bark!");
+		} else {
+		System.out.println("I'm starting to question your sanity...");
+		}
 	}
 
 	public void go(String direction) {

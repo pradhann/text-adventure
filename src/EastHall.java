@@ -13,6 +13,11 @@ public class EastHall implements Room {
 				+ "what appears to be a large pile of stuff overflowing from Sam's office that is "
 				+ "blocking the path to the East.";
 	}
+	
+	public void addAllItems() {
+		Item item = new Item("Pile of stuff", "A pile of things overflowing from Sam's office.", false, false);
+		itemMap.put(item.getName(), item);
+	}
 
 	public void waitH() {
 		System.out.println("You stand in the East Hall for a while. Nothing happens.");
@@ -29,20 +34,36 @@ public class EastHall implements Room {
 		if(!stash.getAllItems().containsKey(item)) {
 			System.out.println("You do not have" + item);
 		} else {
-			// what'll happen if you use itemX
+			if (item.equalsIgnoreCase("code")) {
+				System.out.println("You use the code to open the locked door.");
+				// Unlock the door
+			}
 		}
 	}
 
 	public void look(Inventory stash, String obj) {
-
+		 if (itemMap.containsKey(obj)) {
+			System.out.println(itemMap.get(obj).getDescription());
+		 } else if (stash.getAllItems().containsKey(obj)) {
+			 System.out.println(stash.getAllItems().get(obj).getDescription());
+		} else {
+			System.out.println("Look at what now?");
+		}
 	}
-
+	
 	public void attack(String obj) {
-
+		if (itemMap.containsKey(obj)) {
+			System.out.println("Stop attacking your own things!");
+		} else if (obj.equalsIgnoreCase("Pile of stuff")) {
+			System.out.println("The pile doesn't budge. In fact, it appears to grow slightly"
+					+ "larger... better not do that again...");
+		} else {
+			System.out.println("Stop attacking things that aren't here.");
+		}		
 	}
 
 	public void talk(String obj) {
-
+		System.out.println("I'm starting to question your sanity...");
 	}
 
 	public void go(String direction) {
