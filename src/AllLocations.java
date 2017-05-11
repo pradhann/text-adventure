@@ -22,5 +22,7 @@ public class AllLocations {
 		myStash = new Inventory();
 	}
 	
-	public void go(String )
+	public void go(String direction) {
+		
+	}
 }
