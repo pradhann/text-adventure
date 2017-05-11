@@ -10,9 +10,10 @@ public class Printer implements Room {
 		this.name = name;
 		this.description = "You are now in a room that has the printer.";
 		this.itemMap = new HashMap<String, Item>();
+		this.addAllItems();
 	}
 
-	public void addAllItems() {
+	private void addAllItems() {
 		Item item1 = new Item("Printer", "The CS floor printer.", false, false);
 		itemMap.put(item1.getName(), item1);
 	}
