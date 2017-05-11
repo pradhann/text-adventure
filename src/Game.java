@@ -1,8 +1,7 @@
 import java.util.*;
 
-public class AllLocations {
+public class Game {
 
-	private Room[][] allRooms;
 	private Room currentRoom;
 	private Inventory myStash;
 	private Map<Room, Room> goNorth;
@@ -11,7 +10,7 @@ public class AllLocations {
 	private Map<Room, Room> goWest;
 
 
-	public AllLocations () {
+	public Game () {
 		// initializing all the rooms
 		Room room1 = new CSCommons("CSCommons");
 		Room room2 = new PMOffice("PMOffice");
@@ -19,13 +18,6 @@ public class AllLocations {
 		Room room4 = new Printer("Printer");
 		Room room5 = new WestHall();
 		Room room6 = new EastHall();
-
-
-		allRooms = new Room[1][1];
-		allRooms[0][0] = room1;
-		allRooms[0][1] = room2;
-		allRooms[1][0] = room3;
-		allRooms[1][1] = room4;
 
 		currentRoom = room1;
 		myStash = new Inventory();
@@ -63,20 +55,20 @@ public class AllLocations {
 		currentRoom.waitH();
 	}
 	
-	public void pickUp(Inventory stash, String item) {
-		currentRoom.pickUp(stash, item);
+	public void pickUp(String item) {
+		currentRoom.pickUp(myStash, item);
 	}
 	
-	public void useItem(Inventory stash, String item) {
-		currentRoom.useItem(stash, item);
+	public void useItem(String item) {
+		currentRoom.useItem(myStash, item);
 	}
 	
 	public void attack(String obj) {
 		currentRoom.attack(obj);
 	}
 	
-	public void look(Inventory stash, String obj) {
-		currentRoom.look(stash, obj);
+	public void look(String obj) {
+		currentRoom.look(myStash, obj);
 	}
 	
 	public void talk(String obj) {
@@ -86,6 +78,7 @@ public class AllLocations {
 	public void goNorth() {
 		if(goNorth.containsKey(currentRoom)) {
 			currentRoom = goNorth.get(currentRoom);
+			System.out.println(currentRoom.getDescription());
 		} else {
 			System.out.println("The wall at the north is indestructible. You can't go north! ");
 		}
@@ -94,6 +87,7 @@ public class AllLocations {
 	public void goSouth() {
 		if(goSouth.containsKey(currentRoom)) {
 			currentRoom = goSouth.get(currentRoom);
+			System.out.println(currentRoom.getDescription());
 		} else {
 			System.out.println("The wall at the south is indestructible. You can't go south! ");
 		}
@@ -102,6 +96,7 @@ public class AllLocations {
 	public void goEast() {
 		if(goNorth.containsKey(currentRoom)) {
 			currentRoom = goEast.get(currentRoom);
+			System.out.println(currentRoom.getDescription());
 		} else {
 			System.out.println("The wall at the east is indestructible. You can't go east! ");
 		}
@@ -110,16 +105,13 @@ public class AllLocations {
 	public void goWest() {
 		if(goWest.containsKey(currentRoom)) {
 			currentRoom = goWest.get(currentRoom);
+			System.out.println(currentRoom.getDescription());
 		} else {
 			System.out.println("The wall at the west is indestructible. You can't go west! ");
 		}
 	}
 	
-	
-	
-	
-	
-	
-	
-	
+	public Room getCurRoom() {
+		return currentRoom;
+	}
 }

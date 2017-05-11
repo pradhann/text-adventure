@@ -65,8 +65,9 @@ public class EastHall implements Room {
 	public void talk(String obj) {
 		System.out.println("I'm starting to question your sanity...");
 	}
-
-	public void go(String direction) {
+	
+	public String getDescription () {
+		return description;
 	}
 }
 

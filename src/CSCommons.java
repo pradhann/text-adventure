@@ -77,9 +77,8 @@ public class CSCommons implements Room {
 		System.out.println("I'm starting to question your sanity...");
 	}
 	
-	public void go(String direction) {
-	
+	public String getDescription () {
+		return description;
 	}
-	
 }
 

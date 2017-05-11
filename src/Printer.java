@@ -67,9 +67,8 @@ public class Printer implements Room {
 	public void talk(String obj) {
 		System.out.println("I think you're starting to lose it...");		
 	}
-
-	public void go(String direction) {
-
+	
+	public String getDescription () {
+		return description;
 	}
-
 }

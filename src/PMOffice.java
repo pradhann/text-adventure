@@ -62,11 +62,6 @@ public class PMOffice implements Room {
 		}
 	}
 
-	public void go(String direction) {
-
-	}
-
-
 	public void attack(String obj) {
 		if (obj.equalsIgnoreCase("PM")) {
 			System.out.println("I don't think you want to do that. PM knows Jiu-Jitsu!");
@@ -75,6 +70,10 @@ public class PMOffice implements Room {
 		} else {
 			System.out.println("That is not in the room.");
 		}
+	}
+	
+	public String getDescription () {
+		return description;
 	}
 }
 

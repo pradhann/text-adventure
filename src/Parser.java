@@ -7,16 +7,18 @@ public class Parser {
 	
 	public Parser() {
 		scan = new Scanner(System.in);
-		words = new String[10];
+		words = new String[2];
 	}
 	
 	public void parseWords() {
-		words = scan.nextLine().split(" ", 10);		
+		words =  scan.nextLine().split(" ", 2);		
 	}
 	
-	public void getCommand() {
-		
+	public String getCommand() {
+		return words[0].toLowerCase();
 	}
 	
-
+	public String getItem() {
+		return words[1].toLowerCase();
+	}
 }

@@ -68,7 +68,9 @@ public class WestHall implements Room {
 		}
 	}
 
-	public void go(String direction) {
+	
+	public String getDescription () {
+		return description;
 	}
 }
 
