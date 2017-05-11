@@ -10,9 +10,10 @@ public class RobotRoom implements Room {
 		this.description = "You are in a CS classroom. You can see a logged in computer,"
 				+ " but there is a scribbler robot blocking access to the computer.";
 		this.itemMap = new HashMap<String, Item>();
+		this.addAllItems();
 	}
 	
-	public void addAllItems() {
+	private void addAllItems() {
 		Item item1 = new Item("Scribbler Robot", "A scribbler robot used by the 161 students.", false, false);
 		Item item2 = new Item("Computer", "A lab computer.", false, false);
 		itemMap.put(item1.getName(), item1);
@@ -78,12 +79,4 @@ public class RobotRoom implements Room {
 		public void talk(String obj) {
 			
 		}
-		
-
-	public void go(String direction) {
-
-	}
-
-
-
 }

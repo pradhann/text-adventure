@@ -59,5 +59,67 @@ public class AllLocations {
 
 	}
 
-	public void go(String )
+	public void waitH(){
+		currentRoom.waitH();
+	}
+	
+	public void pickUp(Inventory stash, String item) {
+		currentRoom.pickUp(stash, item);
+	}
+	
+	public void useItem(Inventory stash, String item) {
+		currentRoom.useItem(stash, item);
+	}
+	
+	public void attack(String obj) {
+		currentRoom.attack(obj);
+	}
+	
+	public void look(Inventory stash, String obj) {
+		currentRoom.look(stash, obj);
+	}
+	
+	public void talk(String obj) {
+		currentRoom.talk(obj);
+	}
+	
+	public void goNorth() {
+		if(goNorth.containsKey(currentRoom)) {
+			currentRoom = goNorth.get(currentRoom);
+		} else {
+			System.out.println("The wall at the north is indestructible. You can't go north! ");
+		}
+	}
+	
+	public void goSouth() {
+		if(goSouth.containsKey(currentRoom)) {
+			currentRoom = goSouth.get(currentRoom);
+		} else {
+			System.out.println("The wall at the south is indestructible. You can't go south! ");
+		}
+	}
+	
+	public void goEast() {
+		if(goNorth.containsKey(currentRoom)) {
+			currentRoom = goEast.get(currentRoom);
+		} else {
+			System.out.println("The wall at the east is indestructible. You can't go east! ");
+		}
+	}
+	
+	public void goWest() {
+		if(goWest.containsKey(currentRoom)) {
+			currentRoom = goWest.get(currentRoom);
+		} else {
+			System.out.println("The wall at the west is indestructible. You can't go west! ");
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 }
