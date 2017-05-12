@@ -133,6 +133,10 @@ public class Game {
 		}
 	}
 
+	public void printInventory() {
+		myStash.printInventory();
+	}
+	
 	public Room getCurRoom() {
 		return currentRoom;
 	}

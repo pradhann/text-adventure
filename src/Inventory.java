@@ -25,6 +25,8 @@ public class Inventory {
 	}
 	
 	public void printInventory() {
-		//TODO
+		for(String s : allItems.keySet()) {
+			System.out.println(s);
+		}
 	}
 }

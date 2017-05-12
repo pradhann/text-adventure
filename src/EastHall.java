@@ -14,10 +14,12 @@ public class EastHall implements Room {
 				+ "what appears to be a large \npile of stuff overflowing from Sam's office that is "
 				+ "blocking the path to the East.";
 		locked = false;
+		itemMap = new HashMap<>();
+		addAllItems();
 	}
-	
+
 	public boolean getLocked() { return locked; }
-	
+
 	public void addAllItems() {
 		Item item = new Item("trash", "A pile of things overflowing from Sam's office.", false, false);
 		itemMap.put("trash", item);
@@ -36,7 +38,7 @@ public class EastHall implements Room {
 				System.out.println(item + " cannot be taken.");
 			}
 		} else {
-		 System.out.println(item + " is not in the room!");
+			System.out.println(item + " is not in the room!");
 		}
 	}
 
@@ -52,15 +54,15 @@ public class EastHall implements Room {
 	}
 
 	public void look(Inventory stash, String obj) {
-		 if (itemMap.containsKey(obj)) {
+		if (itemMap.containsKey(obj)) {
 			System.out.println(itemMap.get(obj).getDescription());
-		 } else if (stash.getAllItems().containsKey(obj)) {
-			 System.out.println(stash.getAllItems().get(obj).getDescription());
+		} else if (stash.getAllItems().containsKey(obj)) {
+			System.out.println(stash.getAllItems().get(obj).getDescription());
 		} else {
 			System.out.println("Look at what now?");
 		}
 	}
-	
+
 	public void attack(String obj) {
 		if (itemMap.containsKey(obj)) {
 			System.out.println("Stop attacking your own things!");
@@ -75,7 +77,7 @@ public class EastHall implements Room {
 	public void talk(String obj) {
 		System.out.println("I'm starting to question your sanity...");
 	}
-	
+
 	public String getDescription () {
 		return description;
 	}
