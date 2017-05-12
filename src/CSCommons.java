@@ -5,6 +5,7 @@ public class CSCommons implements Room {
 	private String name;
 	private Map<String,Item> itemMap;
 	private String description;
+	private boolean locked;
 
 	public CSCommons () {
 		this.name = "CS Commons";
@@ -12,7 +13,10 @@ public class CSCommons implements Room {
 				+ "and your laptop charger. There is a door to the South.";
 		this.itemMap = new HashMap<String, Item>();
 		addAllItems();
+		locked = false;
 	}
+	
+	public boolean getLocked() { return locked; }
 
 	public void addAllItems () {
 

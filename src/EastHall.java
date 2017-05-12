@@ -5,6 +5,7 @@ public class EastHall implements Room {
 	private String name;
 	private Map<String, Item> itemMap;
 	private String description;
+	private boolean locked;
 
 
 	public EastHall() {
@@ -12,7 +13,10 @@ public class EastHall implements Room {
 		description = "You are standing in the East Hallway. There is a door to the North, a door to the South, and "
 				+ "what appears to be a large pile of stuff overflowing from Sam's office that is "
 				+ "blocking the path to the East.";
+		locked = false;
 	}
+	
+	public boolean getLocked() { return locked; }
 	
 	public void addAllItems() {
 		Item item = new Item("trash", "A pile of things overflowing from Sam's office.", false, false);

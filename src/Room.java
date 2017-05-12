@@ -8,4 +8,5 @@ public interface Room {
 	public void attack(String object);
 	public void look(Inventory stash, String object);
 	public String getDescription();
+	public boolean getLocked();
 }

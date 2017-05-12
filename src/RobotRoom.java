@@ -15,6 +15,8 @@ public class RobotRoom implements Room {
 		locked = true;
 	}
 	
+	public boolean getLocked() { return locked; }
+	
 	private void addAllItems() {
 		Item item1 = new Item("roobt", "A scribbler robot used by the 161 students.", false, false);
 		Item item2 = new Item("computer", "A lab computer.", false, false);

@@ -5,13 +5,17 @@ public class Printer implements Room {
 	private String name;
 	private Map<String, Item> itemMap;
 	private String description;
+	private boolean locked;
 
 	public Printer () {
 		this.name = "Printer Room";
 		this.description = "You are now in a room that has the printer. \nThere is a door to the North.";
 		this.itemMap = new HashMap<String, Item>();
 		this.addAllItems();
+		locked = false;
 	}
+	
+	public boolean getLocked() { return locked; }
 
 	private void addAllItems() {
 		Item item1 = new Item("Printer", "The CS floor printer.", false, false);

@@ -78,8 +78,12 @@ public class Game {
 
 	public void goNorth() {
 		if(goNorth.containsKey(currentRoom)) {
+			if(!goNorth.get(currentRoom).getLocked()) {
 			currentRoom = goNorth.get(currentRoom);
 			System.out.println(currentRoom.getDescription());
+			} else {
+				System.out.println("The door is locked.");
+			}
 		} else {
 			System.out.println("You can't go north! ");
 		}
@@ -87,8 +91,12 @@ public class Game {
 
 	public void goSouth() {
 		if(goSouth.containsKey(currentRoom)) {
-			currentRoom = goSouth.get(currentRoom);
-			System.out.println(currentRoom.getDescription());
+			if(!goSouth.get(currentRoom).getLocked()) {
+				currentRoom = goSouth.get(currentRoom);
+				System.out.println(currentRoom.getDescription());
+			} else {
+				System.out.println("The door is locked.");
+			}
 		} else {
 			System.out.println("You can't go south! ");
 		}
@@ -96,8 +104,12 @@ public class Game {
 
 	public void goEast() {
 		if(goEast.containsKey(currentRoom)) {
+			if (!goEast.get(currentRoom).getLocked()) {
 			currentRoom = goEast.get(currentRoom);
 			System.out.println(currentRoom.getDescription());
+			} else {
+				System.out.println("The door is locked.");
+			}
 		} else {
 			System.out.println("You can't go east! ");
 		}
@@ -105,8 +117,12 @@ public class Game {
 
 	public void goWest() {
 		if(goWest.containsKey(currentRoom)) {
+			if (!goWest.get(currentRoom).getLocked()) {
 			currentRoom = goWest.get(currentRoom);
 			System.out.println(currentRoom.getDescription());
+			} else {
+				System.out.println("The door is locked.");
+			}
 		} else {
 			System.out.println("You can't go west! ");
 		}

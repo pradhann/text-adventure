@@ -11,6 +11,8 @@ public class Exit implements Room {
 		locked = true;
 	}
 	
+	public boolean getLocked() { return locked; }
+	
 	public void waitH(){ return; }
 	public void talk(String toWho) { return; }
 	public void pickUp(Inventory stash, String item) { return; }

@@ -14,6 +14,8 @@ public class PMOffice implements Room {
 		this.addAllItems();
 		locked = true;
 	}
+	
+	public boolean getLocked() { return locked; }
 
 	private void addAllItems () {
 

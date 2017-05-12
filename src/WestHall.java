@@ -4,6 +4,7 @@ public class WestHall implements Room {
 	private String name;
 	private Map<String, Item> itemMap;
 	private String description;
+	private boolean locked;
 
 
 	public WestHall() {
@@ -11,7 +12,10 @@ public class WestHall implements Room {
 		description = "You are standing in the West Hallway. There is a door to the South and the hallway continues"
 				+ " to the East. PM's office is to the North. Oliver the dog is blocking the West exit.";
 		this.addAllItems();
+		locked = false;
 	}
+	
+	public boolean getLocked() { return locked; }
 
 	public void addAllItems() {
 		itemMap = new HashMap<>();
