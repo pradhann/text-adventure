@@ -5,9 +5,10 @@ public class TextAdventure {
 
 		Game game = new Game();
 		Parser parser = new Parser();
-		boolean oliver = true;
 
-		System.out.println("Welcome!....");
+		System.out.println("Welcome to 'Get Out of Noyce Third'.  You are in Noyce Third and your objective "
+				+ "is to get out of this place. Hundreds of other studnets have dared to enter this floor only to"
+				+ "never leave again. You'll need all the help you can get... ");
 		System.out.println(game.getCurRoom().getDescription());
 
 		while(!(game.getCurRoom() instanceof Exit)) {
