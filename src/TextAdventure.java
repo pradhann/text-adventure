@@ -17,6 +17,10 @@ public class TextAdventure {
 				game.waitH();
 				break;
 
+			case "inventory" : 
+				game.printInventory();
+				break;
+
 			case "go" :
 				String direction = parser.getItem();
 				if(direction != null) {
