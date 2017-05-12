@@ -53,6 +53,7 @@ public class CSCommons implements Room {
 				System.out.println("Your laptop is dead. You cannot use it.");
 			} else {
 				System.out.println("The laptop turns on to reveal the code to unlock the classroom.");
+				RobotRoom.unlock();
 			}
 		} else if (item.equalsIgnoreCase("charger")) {
 			System.out.println("You plug in your laptop.");
