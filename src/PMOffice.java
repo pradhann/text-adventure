@@ -15,6 +15,15 @@ public class PMOffice implements Room {
 		locked = true;
 	}
 	
+	public String generateDescription() {
+		String ret = "You are standing in PM's office.\nPM is sitting at his computer";
+		if(itemMap.containsValue("ball")) {
+			ret = ret + " and there is a ball on the table.";
+		}
+		ret = ret + ".";
+		return ret;
+	}
+	
 	public boolean getLocked() { return locked; }
 	
 	public static void unlock() { locked = false; }

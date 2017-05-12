@@ -20,9 +20,7 @@ public class CSCommons implements Room {
 		if(!itemMap.isEmpty()) {
 			ret = ret + "On the table you see:\n";
 			for (String item : itemMap.keySet()) {
-				if (itemMap.get(item) != null) {
-				ret = ret + itemMap.get(item).getDescription().toLowerCase() + "\n";
-				}
+				ret = ret + itemMap.get(item).getDescription().toLowerCase() + "\n";				
 			}			
 		}
 		ret = ret + "There is a door to the south.";
@@ -52,6 +50,9 @@ public class CSCommons implements Room {
 			if(itemMap.get(item).inventory) {
 				stash.getAllItems().put(item, itemMap.get(item));
 				itemMap.remove(item);
+				for (String key : itemMap.keySet()) {
+					System.out.println(key);
+				}
 				System.out.println("Taken.");
 			} else {
 				System.out.println(item + " cannot be taken.");
