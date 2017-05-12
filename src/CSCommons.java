@@ -9,20 +9,33 @@ public class CSCommons implements Room {
 
 	public CSCommons () {
 		this.name = "CS Commons";
-		this.description = "You are in the CS commons. \nOn the table you see your laptop, your pcard, "
-				+ "and your laptop charger. \nThere is a door to the South.";
 		this.itemMap = new HashMap<String, Item>();
 		addAllItems();
+		this.description = generateDescription();
 		locked = false;
+	}
+	
+	public String generateDescription() {
+		String ret = "You are in the CS Commons.\n";
+		if(!itemMap.isEmpty()) {
+			ret = ret + "On the table you see:\n";
+			for (String item : itemMap.keySet()) {
+				if (itemMap.get(item) != null) {
+				ret = ret + itemMap.get(item).getDescription().toLowerCase() + "\n";
+				}
+			}			
+		}
+		ret = ret + "There is a door to the south.";
+		return ret;
 	}
 	
 	public boolean getLocked() { return locked; }
 
 	public void addAllItems () {
 
-		Item item1 = new Item("laptop", "Your laptop.", true, false);
-		Item item2 = new Item("pcard", "Your Pioneer One card.", true, false);
-		Item item3 = new Item("charger", "Your laptop charger.", true, true);
+		Item item1 = new Item("laptop", "Your laptop", true, false);
+		Item item2 = new Item("pcard", "Your Pioneer One card", true, false);
+		Item item3 = new Item("charger", "Your laptop charger", true, true);
 		itemMap.put("laptop",item1);
 		itemMap.put("pcard",item2);
 		itemMap.put("charger",item3);
@@ -41,7 +54,7 @@ public class CSCommons implements Room {
 				itemMap.remove(item);
 				System.out.println("Taken.");
 			} else {
-				System.out.println(item + " cannot be taken");
+				System.out.println(item + " cannot be taken.");
 			}
 		} else {
 		 System.out.println(item + " is not in the room!");

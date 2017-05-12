@@ -8,11 +8,20 @@ public class RobotRoom implements Room {
 
 	public RobotRoom () {
 		this.name = "Robot Classroom";
-		this.description = "You are in a CS classroom. \nYou can see a logged in computer,"
-				+ " but there is a scribbler robot blocking access to the computer.";
 		this.itemMap = new HashMap<String, Item>();
 		this.addAllItems();
+		this.description = generateDescription();
 		locked = true;
+	}
+	
+	public String generateDescription() {
+		String ret = "You are in a CS classroom. \nYou can see a logged in computer";
+		if(itemMap.containsKey("robot")) {
+			ret = ret + ", but there is a scribbler robot blocking access to the computer.";
+		} else {
+			ret = ret + ".";
+		}		
+		return ret;
 	}
 	
 	public boolean getLocked() { return locked; }
@@ -67,6 +76,7 @@ public class RobotRoom implements Room {
 		if (obj.equalsIgnoreCase("robot")) {
 			System.out.println("You swipe at the scribbler robot blocking your path, "
 					+ "knocking it out of the way. Take that, robo scum!");
+			itemMap.remove("robot");
 			itemMap.get("computer").usable = true;
 		} else if (obj.equalsIgnoreCase("computer")) {
 			System.out.println("What is this, Office Space? You would have to pay for "

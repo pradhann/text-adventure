@@ -11,9 +11,13 @@ public class Parser {
 	}
 
 	public void parseWords() {
-		String[] temp = scan.nextLine().split(" ", 2);	
-		for(int i = 0; i < 2; i++) {
-			words[i] = temp[i];
+		String[] temp = scan.nextLine().split(" ", 2);		
+		words [0] = temp[0];	
+		words[1] = null;
+		if(temp.length < 2) {
+			return;
+		} else {
+			words[1] = temp[1];
 		}
 	}
 
@@ -22,6 +26,10 @@ public class Parser {
 	}
 
 	public String getItem() {
-		return words[1].toLowerCase();
+		if(words[1] != null) {
+			return words[1].toLowerCase();
+		} else {
+			return null;
+		}
 	}
 }

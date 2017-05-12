@@ -51,6 +51,7 @@ public class WestHall implements Room {
 			} else if (item.equalsIgnoreCase("ball")) {
 				System.out.println("You throw the ball and Oliver goes running after it, allowing"
 						+ " you to exit the third floor and head back to your dorm.");
+				itemMap.remove("oliver");
 				Exit.unlock();
 			} else {
 				System.out.println("You can't use that here.");
