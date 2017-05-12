@@ -7,7 +7,7 @@ public class Exit implements Room {
 	
 	public Exit() {
 		name = "Exit";
-		description = "...";
+		description = "You head down the hallway to the stairs. Free at last!";
 		locked = true;
 	}
 	
