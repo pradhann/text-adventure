@@ -4,7 +4,7 @@ public class RobotRoom implements Room {
 	private String name;
 	private String description;
 	private final Map<String, Item> itemMap;
-	private boolean locked;
+	private static boolean locked;
 
 	public RobotRoom () {
 		this.name = "Robot Classroom";
@@ -16,6 +16,8 @@ public class RobotRoom implements Room {
 	}
 	
 	public boolean getLocked() { return locked; }
+	
+	public static void unlock() { locked = false; }
 	
 	private void addAllItems() {
 		Item item1 = new Item("roobt", "A scribbler robot used by the 161 students.", false, false);

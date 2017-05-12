@@ -4,7 +4,7 @@ public class PMOffice implements Room {
 	private String name;
 	private Map<String, Item> itemMap;
 	private String description;
-	private boolean locked;
+	private static boolean locked;
 
 	public PMOffice () {
 		this.name = "PM's Office";
@@ -16,6 +16,8 @@ public class PMOffice implements Room {
 	}
 	
 	public boolean getLocked() { return locked; }
+	
+	public static void unlock() { locked = false; }
 
 	private void addAllItems () {
 

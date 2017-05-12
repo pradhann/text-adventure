@@ -3,7 +3,7 @@ public class Exit implements Room {
 	
 	private String name;
 	private String description;
-	private boolean locked;
+	private static boolean locked;
 	
 	public Exit() {
 		name = "Exit";
@@ -12,6 +12,8 @@ public class Exit implements Room {
 	}
 	
 	public boolean getLocked() { return locked; }
+	
+	public static void unlock() { locked = false; }
 	
 	public void waitH(){ return; }
 	public void talk(String toWho) { return; }
