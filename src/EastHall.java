@@ -12,7 +12,7 @@ public class EastHall implements Room {
 		name = "East Hallway";
 		description = "You are standing in the East Hallway. \nThere is a door to the North, a door to the South, and "
 				+ "what appears to be a large \npile of stuff overflowing from Sam's office that is "
-				+ "blocking the path to the East.";
+				+ "blocking the path to the East. \nThe hallway continues to the west.";
 		locked = false;
 		itemMap = new HashMap<>();
 		addAllItems();
@@ -21,7 +21,7 @@ public class EastHall implements Room {
 	public boolean getLocked() { return locked; }
 
 	public void addAllItems() {
-		Item item = new Item("trash", "A pile of things overflowing from Sam's office.", false, false);
+		Item item = new Item("stuff", "A pile of stuff overflowing from Sam's office.", false, false);
 		itemMap.put("trash", item);
 	}
 
@@ -66,9 +66,11 @@ public class EastHall implements Room {
 	public void attack(String obj) {
 		if (itemMap.containsKey(obj)) {
 			System.out.println("Stop attacking your own things!");
-		} else if (obj.equalsIgnoreCase("Pile of stuff")) {
-			System.out.println("The pile doesn't budge. In fact, it appears to grow slightly"
+		} else if (obj.equalsIgnoreCase("stuff")) {
+			System.out.println("The pile doesn't budge. In fact, it appears to grow slightly "
 					+ "larger... better not do that again...");
+		} else if (obj.equalsIgnoreCase("door")){
+			System.out.println("You hit the door. Nothing happens.");
 		} else {
 			System.out.println("Stop attacking things that aren't here.");
 		}		

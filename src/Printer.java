@@ -49,7 +49,7 @@ public class Printer implements Room {
 		} else if (item.equalsIgnoreCase("pcard")) {
 			if (stash.getAllItems().get(item).usable) {
 				Item paper = new Item("message", "A message to get PM's attention."
-						+ " It reads...", true, true);
+						+ " It reads 'UNLOCK THE DOOR, PM!'", true, true);
 				itemMap.put("message", paper);
 				System.out.println("The printer prints the message you created.");
 			} else {

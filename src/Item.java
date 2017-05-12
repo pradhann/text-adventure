@@ -18,6 +18,10 @@ public class Item {
 		return description;
 	}
 
+	public void usable() {
+		usable = true;
+	}
+	
 	public String getName() {
 		return name;
 	}

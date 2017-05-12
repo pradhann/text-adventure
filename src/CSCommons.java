@@ -61,15 +61,28 @@ public class CSCommons implements Room {
 
 	public void useItem(Inventory stash, String item) {
 		if (item.equalsIgnoreCase("laptop")) {
-			if (!itemMap.get(item).usable) {
-				System.out.println("Your laptop is dead. You cannot use it.");
-			} else {
-				System.out.println("The laptop turns on to reveal the code to unlock the classroom.");
-				RobotRoom.unlock();
+			if(itemMap.containsKey(item)) {
+				if (!itemMap.get(item).usable) {
+					System.out.println("Your laptop is dead. You cannot use it.");
+				} else {
+					System.out.println("The laptop turns on to reveal the code to unlock the classroom.");
+					RobotRoom.unlock();
+				}
+			} else if (stash.getAllItems().containsKey(item)) {
+				if (!stash.getAllItems().get(item).usable) {
+					System.out.println("Your laptop is dead. You cannot use it.");
+				} else {
+					System.out.println("The laptop turns on to reveal the code to unlock the classroom.");
+					RobotRoom.unlock();
+				}
 			}
 		} else if (item.equalsIgnoreCase("charger")) {
 			System.out.println("You plug in your laptop.");
-			itemMap.get("laptop").usable = true;
+			if(itemMap.containsKey("laptop")) {
+				itemMap.get("laptop").usable();
+			} else {
+				stash.getAllItems().get("laptop").usable();
+			}
 		} else if(!stash.getAllItems().containsKey(item)) {
 			System.out.println("You do not have " + item + ".");
 		} else if (stash.getAllItems().get(item).usable) {

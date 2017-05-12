@@ -8,19 +8,17 @@ public class PMOffice implements Room {
 
 	public PMOffice () {
 		this.name = "PM's Office";
-		this.description = "You are standing in PM's office. \nPM is sitting at his computer and there is a "
-				+ "ball on the table.";
 		this.itemMap = new HashMap<String,Item>();
 		this.addAllItems();
+		this.description = generateDescription();
 		locked = true;
 	}
 	
 	public String generateDescription() {
-		String ret = "You are standing in PM's office.\nPM is sitting at his computer";
-		if(itemMap.containsValue("ball")) {
-			ret = ret + " and there is a ball on the table.";
+		String ret = "You are standing in PM's office.\nPM is sitting at his computer.";
+		if(itemMap.containsKey("ball")) {
+			ret = ret + " \nThere is a ball on the table.";
 		}
-		ret = ret + ".";
 		return ret;
 	}
 	

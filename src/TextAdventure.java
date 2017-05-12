@@ -6,9 +6,11 @@ public class TextAdventure {
 		Game game = new Game();
 		Parser parser = new Parser();
 
-		System.out.println("Welcome to 'Get Out of Noyce Third'.  You are in Noyce Third and your objective "
-				+ "is to get out of this place. Hundreds of other studnets have dared to enter this floor only to"
-				+ "never leave again. You'll need all the help you can get... ");
+		System.out.println("Welcome to 'Get Out of Noyce Third'.  \nYou are in Noyce Third and your objective "
+				+ "is to get out of this place. \nHundreds of other students have dared to enter this floor only to"
+				+ "never leave again. \nYou'll need all the help you can get...\nEnter two word commands to progress through the game."
+				+ " \nYou wake up from taking a nap on the couch in the CS Commons.\nYou are disoriented and don't know what time it is."
+				+ "\nMaybe if you can find PM, he will help you get out...");
 		System.out.println(game.getCurRoom().getDescription());
 
 		while(!(game.getCurRoom() instanceof Exit)) {
@@ -49,7 +51,7 @@ public class TextAdventure {
 
 			case "look" :
 				if(parser.getItem() == null) {
-					System.out.println("And what should I look at?");
+					System.out.println(game.getCurRoom().getDescription());
 				} else {
 					game.look(parser.getItem());
 				}
