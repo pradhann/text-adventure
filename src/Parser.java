@@ -11,7 +11,10 @@ public class Parser {
 	}
 
 	public void parseWords() {
-		words =  scan.nextLine().split(" ", 2);		
+		String[] temp = scan.nextLine().split(" ", 2);	
+		for(int i = 0; i < 2; i++) {
+			words[i] = temp[i];
+		}
 	}
 
 	public String getCommand() {

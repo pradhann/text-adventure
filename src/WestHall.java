@@ -9,8 +9,8 @@ public class WestHall implements Room {
 
 	public WestHall() {
 		name = "West Hallway";
-		description = "You are standing in the West Hallway. There is a door to the South and the hallway continues"
-				+ " to the East. PM's office is to the North. Oliver the dog is blocking the West exit.";
+		description = "You are standing in the West Hallway. \nThere is a door to the South and the hallway continues"
+				+ " to the East. PM's office is to the North. \nOliver the dog is blocking the West exit.";
 		this.addAllItems();
 		locked = false;
 	}

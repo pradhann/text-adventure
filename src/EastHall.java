@@ -10,8 +10,8 @@ public class EastHall implements Room {
 
 	public EastHall() {
 		name = "East Hallway";
-		description = "You are standing in the East Hallway. There is a door to the North, a door to the South, and "
-				+ "what appears to be a large pile of stuff overflowing from Sam's office that is "
+		description = "You are standing in the East Hallway. \nThere is a door to the North, a door to the South, and "
+				+ "what appears to be \na large pile of stuff overflowing from Sam's office that is "
 				+ "blocking the path to the East.";
 		locked = false;
 	}
@@ -33,7 +33,7 @@ public class EastHall implements Room {
 				stash.getAllItems().put(item, itemMap.get(item));
 				System.out.println("Taken.");
 			} else {
-				System.out.println(item + " cannot be taken");
+				System.out.println(item + " cannot be taken.");
 			}
 		} else {
 		 System.out.println(item + " is not in the room!");

@@ -37,9 +37,10 @@ public class PMOffice implements Room {
 		if(itemMap.containsKey(item)) {
 			if(itemMap.get(item).inventory) {
 				stash.getAllItems().put(item, itemMap.get(item));
+				itemMap.remove(item);
 				System.out.println("Taken.");
 			} else {
-				System.out.println(item + " cannot be taken");
+				System.out.println(item + " cannot be taken.");
 			}
 		} else {
 		 System.out.println(item + " is not in the room!");

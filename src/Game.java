@@ -118,8 +118,13 @@ public class Game {
 	public void goWest() {
 		if(goWest.containsKey(currentRoom)) {
 			if (!goWest.get(currentRoom).getLocked()) {
-			currentRoom = goWest.get(currentRoom);
-			System.out.println(currentRoom.getDescription());
+				if(goWest.get(currentRoom) instanceof Exit && (!myStash.getAllItems().containsKey("laptop") 
+						|| !myStash.getAllItems().containsKey("charger"))) {
+					System.out.println("Don't leave without your laptop and charger!");
+				} else {
+					currentRoom = goWest.get(currentRoom);
+					System.out.println(currentRoom.getDescription());
+				}
 			} else {
 				System.out.println("The door is locked.");
 			}

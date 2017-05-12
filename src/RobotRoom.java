@@ -8,7 +8,7 @@ public class RobotRoom implements Room {
 
 	public RobotRoom () {
 		this.name = "Robot Classroom";
-		this.description = "You are in a CS classroom. You can see a logged in computer,"
+		this.description = "You are in a CS classroom. \nYou can see a logged in computer,"
 				+ " but there is a scribbler robot blocking access to the computer.";
 		this.itemMap = new HashMap<String, Item>();
 		this.addAllItems();
@@ -28,8 +28,7 @@ public class RobotRoom implements Room {
 
 
 	public void waitH() {
-		System.out.println("You stand in the classroom for a while. You hear scribbler robot beeps, "
-				+ "otherwise nothing happens.");
+		System.out.println("You stand in the classroom for a while. A scribbler robot sings a didly.");
 	}
 
 	public void pickUp(Inventory stash, String item) {
@@ -37,10 +36,10 @@ public class RobotRoom implements Room {
 			if(item.equalsIgnoreCase("robot")) {
 				System.out.println("Don't pick that thing up, it's evil!");
 			} else {
-				System.out.println("You can't pick that up");
+				System.out.println("You can't pick that up.");
 			} 
 		} else {
-			System.out.println(item + " is not in the room");
+			System.out.println(item + " is not in the room.");
 
 		}
 	}

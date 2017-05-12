@@ -9,8 +9,8 @@ public class CSCommons implements Room {
 
 	public CSCommons () {
 		this.name = "CS Commons";
-		this.description = "You are in the CS commons. On the table you see your laptop, your pcard,"
-				+ "and your laptop charger. There is a door to the South.";
+		this.description = "You are in the CS commons. \nOn the table you see your laptop, your pcard, "
+				+ "and your laptop charger. \nThere is a door to the South.";
 		this.itemMap = new HashMap<String, Item>();
 		addAllItems();
 		locked = false;
@@ -38,6 +38,7 @@ public class CSCommons implements Room {
 		if(itemMap.containsKey(item)) {
 			if(itemMap.get(item).inventory) {
 				stash.getAllItems().put(item, itemMap.get(item));
+				itemMap.remove(item);
 				System.out.println("Taken.");
 			} else {
 				System.out.println(item + " cannot be taken");
