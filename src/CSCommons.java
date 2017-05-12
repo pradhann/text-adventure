@@ -50,9 +50,6 @@ public class CSCommons implements Room {
 			if(itemMap.get(item).inventory) {
 				stash.getAllItems().put(item, itemMap.get(item));
 				itemMap.remove(item);
-				for (String key : itemMap.keySet()) {
-					System.out.println(key);
-				}
 				System.out.println("Taken.");
 			} else {
 				System.out.println(item + " cannot be taken.");
@@ -106,7 +103,7 @@ public class CSCommons implements Room {
 	}
 
 	public String getDescription () {
-		return description;
+		return generateDescription();
 	}
 }
 

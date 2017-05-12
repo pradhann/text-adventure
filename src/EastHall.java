@@ -11,7 +11,7 @@ public class EastHall implements Room {
 	public EastHall() {
 		name = "East Hallway";
 		description = "You are standing in the East Hallway. \nThere is a door to the North, a door to the South, and "
-				+ "what appears to be \na large pile of stuff overflowing from Sam's office that is "
+				+ "what appears to be a large \npile of stuff overflowing from Sam's office that is "
 				+ "blocking the path to the East.";
 		locked = false;
 	}

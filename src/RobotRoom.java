@@ -102,6 +102,6 @@ public class RobotRoom implements Room {
 		}
 		
 		public String getDescription () {
-			return description;
+			return generateDescription();
 		}
 }

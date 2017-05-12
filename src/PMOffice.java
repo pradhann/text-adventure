@@ -95,7 +95,7 @@ public class PMOffice implements Room {
 	}
 	
 	public String getDescription () {
-		return description;
+		return generateDescription();
 	}
 }
 
